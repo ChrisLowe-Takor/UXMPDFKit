@@ -11,7 +11,7 @@ import UIKit
 public class PDFArray: PDFObject {
     fileprivate var arr: CGPDFArrayRef
     
-    var array: [AnyObject] = []
+    public var array: [AnyObject] = []
     
     required public init(arrayRef: CGPDFArrayRef) {
         self.arr = arrayRef
