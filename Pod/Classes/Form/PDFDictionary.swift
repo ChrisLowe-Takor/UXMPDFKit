@@ -20,7 +20,7 @@ fileprivate class PDFObjectParserContext {
     }
 }
 
-func == (lhs: PDFDictionary, rhs: PDFDictionary) -> Bool {
+public func == (lhs: PDFDictionary, rhs: PDFDictionary) -> Bool {
     let rect1 = lhs.arrayForKey("Rect")?.rect
     let rect2 = rhs.arrayForKey("Rect")?.rect
     
@@ -33,7 +33,7 @@ func == (lhs: PDFDictionary, rhs: PDFDictionary) -> Bool {
     return rect1 == rect2 && keys1 == keys2 && t1 == t2
 }
 
-internal class PDFDictionary: PDFObject, Equatable {
+public class PDFDictionary: PDFObject, Equatable {
     var dict: CGPDFDictionaryRef
     
     lazy var attributes: [String:AnyObject] = {
