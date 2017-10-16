@@ -69,7 +69,7 @@ public class PDFDictionary: PDFObject, Equatable {
         dict = dictionaryRef
     }
     
-    subscript(key: String) -> AnyObject? {
+    public subscript(key: String) -> AnyObject? {
         return attributes[key]
     }
     
