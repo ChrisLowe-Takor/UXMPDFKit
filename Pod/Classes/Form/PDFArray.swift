@@ -8,12 +8,12 @@
 
 import UIKit
 
-internal class PDFArray: PDFObject {
+public class PDFArray: PDFObject {
     fileprivate var arr: CGPDFArrayRef
     
     var array: [AnyObject] = []
     
-    required init(arrayRef: CGPDFArrayRef) {
+    required public init(arrayRef: CGPDFArrayRef) {
         self.arr = arrayRef
         
         array = copyAsArray()
@@ -162,13 +162,13 @@ internal class PDFArray: PDFObject {
 }
 
 extension PDFArray: NSCopying {
-    func copy(with zone: NSZone?) -> Any {
+    public func copy(with zone: NSZone?) -> Any {
         return type(of: self).init(arrayRef: arr)
     }
 }
 
 extension PDFArray: Sequence {
-    func makeIterator() -> AnyIterator<AnyObject> {
+    public func makeIterator() -> AnyIterator<AnyObject> {
         var nextIndex = array.count - 1
         
         return AnyIterator {
