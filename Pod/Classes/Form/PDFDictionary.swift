@@ -207,6 +207,17 @@ public class PDFDictionary: PDFObject, Equatable {
             } else {
                 string += "\(spacer)\(key) : \(value)\n"
             }
+
+            if let value = value as? PDFArray {
+                string += "\(spacer)\(key) : PDFArray(\(value.count))"
+                for item in value {
+                    if let dictItem = item as? PDFDictionary {
+                        string += "\(spacer)\(key) : \(dictItem.description(level+1))"
+                    } else {
+                        string += "\(spacer)\(key) : \(value)\n"
+                    }
+                }
+            }
         }
         string += "\(spacer)}\n"
         return string
