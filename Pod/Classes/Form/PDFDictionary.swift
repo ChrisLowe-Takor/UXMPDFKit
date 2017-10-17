@@ -73,15 +73,15 @@ public class PDFDictionary: PDFObject, Equatable {
         return attributes[key]
     }
     
-    func arrayForKey(_ key: String) -> PDFArray? {
+    public func arrayForKey(_ key: String) -> PDFArray? {
         return attributes[key] as? PDFArray
     }
     
-    func stringForKey(_ key: String) -> String? {
+    public func stringForKey(_ key: String) -> String? {
         return attributes[key] as? String
     }
     
-    func allKeys() -> [String] {
+    public func allKeys() -> [String] {
         return stringKeys
     }
     
@@ -212,7 +212,7 @@ public class PDFDictionary: PDFObject, Equatable {
         return string
     }
     
-    var description: String {
+    public var description: String {
         return description(0)
     }
 }
