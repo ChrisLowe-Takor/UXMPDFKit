@@ -36,7 +36,7 @@ public func == (lhs: PDFDictionary, rhs: PDFDictionary) -> Bool {
 public class PDFDictionary: PDFObject, Equatable {
     var dict: CGPDFDictionaryRef
     
-    lazy var attributes: [String:AnyObject] = {
+    public lazy var attributes: [String:AnyObject] = {
         
         var context = PDFObjectParserContext(keys: [])
         CGPDFDictionaryApplyFunction(self.dict, self.getDictionaryObjects, &context)
